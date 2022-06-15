@@ -26,4 +26,4 @@ function mathResult(num1, num2, operator) {
 }
 
 mathResult(2, 4, '*');
-// output:
+// output: 8
