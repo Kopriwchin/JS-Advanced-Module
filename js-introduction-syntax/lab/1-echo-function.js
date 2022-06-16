@@ -4,5 +4,6 @@ function inputFunc(input) {
 }
 
 inputFunc('Peter');
-// output: 5
-// output: Peter
+// output:
+// 5
+// Peter

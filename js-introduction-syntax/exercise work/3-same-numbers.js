@@ -17,4 +17,6 @@ function checkNumber(num) {
 }
 
 checkNumber(2222222);
-// output: true\n14
+// output:
+// true
+// 14

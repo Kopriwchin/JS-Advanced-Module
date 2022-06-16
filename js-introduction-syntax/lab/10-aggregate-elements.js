@@ -29,4 +29,7 @@ function aggregateElements(...x) {
 }
 
 aggregateElements([2, 4, 8, 16]);
-// output: 30\n0.9375\n24816
+// output:
+// 30
+// 0.9375
+// 24816

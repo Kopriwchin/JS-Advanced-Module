@@ -5,5 +5,6 @@ function strLength(str1, str2, str3) {
 }
 
 strLength('pasta', '5', '22.3');
-// output: 10
-// output: 3
+// output:
+// 10
+// 3

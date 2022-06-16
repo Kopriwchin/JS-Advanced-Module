@@ -30,7 +30,16 @@ function cookingNumberCommands(number, arg2, arg3, arg4, arg5, arg6) {
 }
 
 cookingNumberCommands('32', 'chop', 'chop', 'chop', 'chop', 'chop');
-// output: 16\n8\n4\n2\n1
+// output:
+// 16
+// 8
+// 4
+// 2
+// 1
 
 cookingNumberCommands('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
-// output: 3\n4\n2\n6\n4.8
+// output:
+// 3
+// 2
+// 6
+// 4.8

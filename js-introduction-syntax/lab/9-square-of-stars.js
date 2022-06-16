@@ -14,4 +14,7 @@ function printStars(count) {
 }
 
 printStars(3);
-// output: * * *\n* * *\n* * *
+// output:
+// * * *
+// * * *
+// * * *
