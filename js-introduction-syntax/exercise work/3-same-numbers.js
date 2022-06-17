@@ -1,9 +1,9 @@
 function checkNumber(num) {
 	let numAsString = String(num);
 	let isNumberSame = true;
-	const firstLetter = numAsString[0];
+	const firstNumber = numAsString[0];
 	for (let i = 1; i < numAsString.length; i++) {
-		if (numAsString[i] !== firstLetter) {
+		if (numAsString[i] !== firstNumber) {
 			isNumberSame = false;
 			break;
 		}
