@@ -29,4 +29,4 @@ console.log(cars); // output: ['Peugeot', 'BMW', 'Mercedes', 'Honda']
 let arr = [1, 2, 3, 5];
 // fill with 0 from position 2 until position 4 ( we dont have position 5, so the method only fills the array to the last index)
 console.log(arr.fill(0, 2, 4)) // output: [1, 2, 0, 0];
-console.log(arr.fill(6)); // output: [6, 6, 6, 6];
+console.log(arr.fill(6)); // output: [6, 6, 6, 6]
