@@ -1,5 +1,5 @@
 function solve(arr) {
-	let array = Array(...arr).sort(function(a, b) {
+	let array = Array(...arr).sort(function (a, b) {
 		return a - b;
 	});
 

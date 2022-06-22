@@ -1,5 +1,5 @@
 function equalNeighborsCount(matrix) {
-    let neighbors = 0;
+	let neighbors = 0;
 	let index = 1;
 
 	for (let i = 0; i < matrix.length; i++) {
@@ -22,7 +22,7 @@ function equalNeighborsCount(matrix) {
 		index = 1;
 	}
 
-    console.log(neighbors);
+	console.log(neighbors);
 }
 
 equalNeighborsCount([
