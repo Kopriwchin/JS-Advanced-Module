@@ -8,7 +8,7 @@ function circleArea(radius) {
 }
 
 circleArea(5);
-// output: 78.54
+// 78.54
 
 circleArea('name');
-// output: We can not calculate the circle area, because we receive a string.
+// We can not calculate the circle area, because we receive a string.

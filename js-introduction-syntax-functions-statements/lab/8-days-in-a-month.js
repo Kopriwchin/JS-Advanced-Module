@@ -4,4 +4,4 @@ function calculateDays(monthNum, year) {
 }
 
 calculateDays('2', '2012');
-// output: 29
+// 29

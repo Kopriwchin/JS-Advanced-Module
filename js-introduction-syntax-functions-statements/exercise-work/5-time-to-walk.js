@@ -15,4 +15,4 @@ function calculateWalkingTime(numberSteps, lengthFootprintInMeter, velocity) {
 }
 
 calculateWalkingTime(4000, 0.6, 5);
-// output: 00:32:48
+// 00:32:48

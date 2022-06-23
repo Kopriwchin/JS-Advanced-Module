@@ -4,5 +4,5 @@ function wordsToUppercase(input) {
 	console.log(result.join(', ').toUpperCase())
 }
 
-wordsToUppercase('Hi, how are you?');
-wordsToUppercase('hello');
+wordsToUppercase('Hi, how are you?'); // HI, HOW, ARE, YOU
+wordsToUppercase('hello'); // HELLO

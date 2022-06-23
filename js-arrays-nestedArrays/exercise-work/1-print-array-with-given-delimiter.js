@@ -7,6 +7,6 @@ function solve(array, seperator) {
 	console.log(result);
 }
 
-solve(['One', 'Two', 'Three', 'Four', 'Five'], '-'); // output: One-Two-Three-Four-Five
+solve(['One', 'Two', 'Three', 'Four', 'Five'], '-'); // One-Two-Three-Four-Five
 
-solve(['How about no?', 'I', 'will', 'not', 'do', 'it!'], '_'); // output: How about no?_I_will_not_do_it!
+solve(['How about no?', 'I', 'will', 'not', 'do', 'it!'], '_'); // How about no?_I_will_not_do_it!

@@ -5,4 +5,4 @@ function calculatePreviousDay(year, month, day) {
 }
 
 calculatePreviousDay(2016, 10, 1);
-// output: 2016-9-29
+// 2016-9-29

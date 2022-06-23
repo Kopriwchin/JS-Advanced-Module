@@ -10,4 +10,4 @@ function dayOfWeekNum(wordWeek) {
 }
 
 dayOfWeekNum('Sunday');
-// output: 7
+// 7

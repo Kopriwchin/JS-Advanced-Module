@@ -5,4 +5,4 @@ function solve(array) {
 	console.log(newArr[0] + ' ' + newArr[1]);
 }
 
-solve([30, 15, 50, 5]); // output: 5 15
+solve([30, 15, 50, 5]); // 5 15

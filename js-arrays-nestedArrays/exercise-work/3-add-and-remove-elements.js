@@ -35,10 +35,10 @@ solve(['add', 'add', 'add', 'add']);
 // 4
 
 solve(['add', 'add', 'remove', 'add', 'add']);
-// output: 
+// 
 // 1
 // 4
 // 5
 
 solve(['remove', 'remove', 'remove']);
-// output: Empty
+// Empty

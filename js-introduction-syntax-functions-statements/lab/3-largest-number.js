@@ -10,4 +10,4 @@ function biggestNumber(firstNum, secondNum, thirdNum) {
 }
 
 biggestNumber(-3, -5, -22.5);
-// output: The largest number is -3.
+// The largest number is -3.

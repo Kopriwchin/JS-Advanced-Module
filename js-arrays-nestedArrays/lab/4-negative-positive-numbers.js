@@ -15,7 +15,7 @@ function solve(array) {
 }
 
 solve([7, -2, 8, 9])
-// output: 
+// 
 // -2
 // 7
 // 8

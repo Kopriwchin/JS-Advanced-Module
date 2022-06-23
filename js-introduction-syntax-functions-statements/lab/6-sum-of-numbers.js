@@ -9,4 +9,4 @@ function sumNums(n, m) {
 }
 
 sumNums('-8', '20');
-// output: 174
+// 174

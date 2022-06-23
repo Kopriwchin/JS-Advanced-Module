@@ -10,4 +10,4 @@ function solve(array, rotations) {
 	console.log(result);
 }
 
-solve(['1', '2', '3', '4'], 2); // output: 3 4 1 2
+solve(['1', '2', '3', '4'], 2); // 3 4 1 2

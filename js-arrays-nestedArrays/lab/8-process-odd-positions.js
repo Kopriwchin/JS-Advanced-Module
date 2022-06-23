@@ -10,5 +10,5 @@ function solve(array) {
 	return newArray;
 }
 
-solve([10, 15, 20, 25]); // output: newarray = [50, 30]
-solve([3, 0, 10, 4, 7, 3]); // output: newarray = [6, 8, 0]
+solve([10, 15, 20, 25]); // newarray = [50, 30]
+solve([3, 0, 10, 4, 7, 3]); // newarray = [6, 8, 0]

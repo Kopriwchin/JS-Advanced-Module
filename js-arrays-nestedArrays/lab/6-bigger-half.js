@@ -11,5 +11,5 @@ function solve(arr) {
 	return array;
 }
 
-solve([4, 7, 2, 5]); // output: [5, 7];
-solve([3, 19, 14, 7, 2, 19, 6]); // output: [7, 14, 19, 19]
+solve([4, 7, 2, 5]); // [5, 7];
+solve([3, 19, 14, 7, 2, 19, 6]); // [7, 14, 19, 19]

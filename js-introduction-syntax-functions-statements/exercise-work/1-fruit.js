@@ -6,4 +6,4 @@ function calculateFruit(typeFruit, grams, pricePerKilo) {
 }
 
 calculateFruit('apple', 1563, 2.35);
-// output: I need $3.67 to buy 1.56 kilograms apple.
+// I need $3.67 to buy 1.56 kilograms apple.

@@ -28,13 +28,13 @@ function determineDrivingLegal(kilometers, area) {
 }
 
 determineDrivingLegal(40, 'city');
-// output: Driving 40 km/h in a 50 zone
+// Driving 40 km/h in a 50 zone
 
 determineDrivingLegal(21, 'residential');
-// output: The speed is 1 km/h faster than the allowed speed of 20 - speeding
+// The speed is 1 km/h faster than the allowed speed of 20 - speeding
 
 determineDrivingLegal(120, 'interstate');
-// output: The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding
+// The speed is 30 km/h faster than the allowed speed of 90 - excessive speeding
 
 determineDrivingLegal(200, 'motorway');
-// output: The speed is 70 km/h faster than the allowed speed of 130 - reckless driving
+// The speed is 70 km/h faster than the allowed speed of 130 - reckless driving

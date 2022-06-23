@@ -16,4 +16,4 @@ solve (['Apple Crisp',
 'Pot Pie',
 'Smoked Fish Pie'
 );
-// output: ['Pot Pie', 'Steak and Cheese Pie', 'Butter Chicken Pie', 'Smoked Fish Pie']
+// ['Pot Pie', 'Steak and Cheese Pie', 'Butter Chicken Pie', 'Smoked Fish Pie']

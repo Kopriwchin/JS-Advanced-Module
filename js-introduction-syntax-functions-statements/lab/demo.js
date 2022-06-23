@@ -1,6 +1,6 @@
 //let firstName = 'georgi'
 //console.log(firstName);
-//output: georgi
+//georgi
 
 let firstName = 'Pesho';
 const age = 20;
