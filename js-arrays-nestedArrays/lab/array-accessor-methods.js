@@ -31,5 +31,3 @@ let ladaIndex = allCars.indexOf('Lada');
 console.log(ladaIndex); // 3
 let trabantIndex = allCars.indexOf('Trabant');
 console.log(trabantIndex); // -1, because there is no Trabant in the array
-
-
