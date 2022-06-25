@@ -49,4 +49,4 @@ let sum = nums.reduce((acc, num) => {
 	return acc + num;
 }, 0);
 
-console.log(sum);
+console.log(sum); // 15
