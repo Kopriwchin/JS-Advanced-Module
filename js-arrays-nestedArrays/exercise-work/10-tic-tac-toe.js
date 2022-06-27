@@ -1,80 +1,92 @@
-function playGame(arrayMoves) {
-	let isFinished = false;
+function solve(input) {
+	let arr = [
+		[false, false, false],
+		[false, false, false],
+		[false, false, false]
+	];
+	let player = 'X';
 
-	let gameBoard = [
-		['false', 'false', 'false'],
-		['false', 'false', 'false'],
-		['false', 'false', 'false']
-	]
+	for (let line of input) {
+		[currRow, currCol] = line.split(' ').map(Number);
 
-	function checkIfWins(gameBoard) {
-		let isFirstDiagonalWinner = gameBoard[0][0] === gameboard[1][1] && gameboard[1][1] === gameboard[2][2];
-		let isSecondDiagonalWinner = gameboard[0][2] === gameboard[1][1] && gameboard[1][1] === gameboard[2][0];
-		let isTopRowWinner = gameboard[0][0] === gameboard[0][1] && gameboard[0][1] === gameboard[0][1];
-		let isLeftSideWinner = gameboard[0][0] === gameboard[1][0] && gameboard[1][0] === gameboard[2][0];
-		let isRightSideWinner = gameboard[0][2] === gameboard[1][2] && gameboard[1][2] === gameboard[2][2];
-		let isBottomSideWinner = gameboard[2][0] === gameboard[2][1] && gameboard[2][1] === gameboard[2][2];
+		if (arr[currRow][currCol] !== false) {
+			console.log('This place is already taken. Please choose another!');
+			continue;
+		}
 
-		if (isFirstDiagonalWinner || isSecondDiagonalWinner) {
-			if (gameboard[1][1] === 'X') {
-				console.log('Player X wins!');
-			} else {
-				console.log('Player O wins!');
-			}
-		} else if (isTopRowWinner) {
-			if (gameboard[0][0] === 'X') {
-				console.log('Player X wins!');
-			} else {
-				console.log('Player O wins!');
-			}
-		} else if (isLeftSideWinner) {
-			if (gameboard[0][0] === 'X') {
-				console.log('Player X wins!');
-			} else {
-				console.log('Player O wins!');
-			}
-		} else if (isRightSideWinner) {
-			if (gameboard[0][2] === 'X') {
-				console.log('Player X wins!');
-			} else {
-				console.log('Player O wins!');
-			}
-		} else if (isBottomSideWinner) {
-			if (gameboard[2][2] === 'X') {
-				console.log('Player X wins!');
-			} else {
-				console.log('Player O wins!');
+		arr[currRow][currCol] = player;
+
+		//check horizontal and vertical
+		for (let i = 0; i < 3; i++) {
+			if (
+				arr[i][0] === player &&
+				arr[i][1] === player &&
+				arr[i][2] === player
+			) {
+				console.log(`Player ${player} wins!`);
+				printMatrix();
+				return;
+			} else if (
+				arr[0][i] === player &&
+				arr[1][i] === player &&
+				arr[2][i] === player
+			) {
+				console.log(`Player ${player} wins!`);
+				printMatrix();
+				return;
 			}
 		}
+
+		//check left to right
+		if (
+			arr[0][0] === player &&
+			arr[1][1] === player &&
+			arr[2][2] === player
+		) {
+			console.log(`Player ${player} wins!`);
+			printMatrix();
+			return;
+		}
+
+		//check right to left
+		else if (
+			arr[0][2] === player &&
+			arr[1][1] === player &&
+			arr[2][0] === player
+		) {
+			console.log(`Player ${player} wins!`);
+			printMatrix();
+			return;
+		}
+
+		let theresFalse = false;
+
+		for (let row = 0; row < arr.length; row++) {
+			if (arr[row].includes(false)) {
+				theresFalse = true;
+			}
+		}
+
+		if (!theresFalse) {
+			console.log('The game ended! Nobody wins :(');
+			printMatrix();
+			return;
+		}
+
+		player = player === 'X' ? 'O' : 'X';
 	}
 
-	let index = 0;
-
-	while (isFinished !== true) {
-		for (let i = 0; i < arrayMoves.length; i++) {
-			let move = arrayMoves[i].split(' ');
-			if (gameBoard[move[0]][move[1]] === 'false') {
-				if (index % 2 == 0) {
-					gameBoard[move[0]][move[1]] = 'X';
-				} else {
-					gameBoard[move[0]][move[1]] = 'O';
-				}
-				index++;
-			} else {
-				console.log('This place is already taken. Please choose another!');
-			} 
+	function printMatrix() {
+		for (let row = 0; row < arr.length; row++) {
+			console.log(arr[row].join('\t'));
 		}
-		isFinished = true;
-	}
-
-	let result = '';
-	for (let i = 0; i < gameBoard.length; i++) {
-		for (let k = 0; k < gameBoard.length; k++) {
-			result += gameBoard[i][k] + '\t';
-		}
-		console.log(result.trimEnd());
-		result = '';
 	}
 }
 
-playGame(["0 1", "0 0", "0 2", "2 0", "1 0", "1 1", "1 2", "2 2", "2 1", "0 0"]);
+solve(["0 0", "0 0", "1 1", "0 1", "1 2", "0 2", "2 2", "1 2", "2 2", "2 1"]);
+
+// This place is already taken. Please choose another!
+// Player X wins!
+// X	X	X
+// false	O	O
+// false	false	false
