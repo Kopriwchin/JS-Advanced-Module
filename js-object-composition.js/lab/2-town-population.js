@@ -1,36 +1,36 @@
 function solve(input) {
-	let listTowns = Array(...input);
+	let towns = {};
+	
+	let townName = '';
+	let population = 0;
 
-	let associativeArray = {};
-	let firstWord = '';
-	let secondWord = '';
-	let isDone = true;
+	let args = [];
 
-	for (const townPopulation of input) {
-		for (let i = 0; i < townPopulation.length; i++) {
-			if (townPopulation[i] == ' ') {
-				i += 4;
-				isDone = false;
-				continue;
-			}
-			if (isDone) {
-				firstWord += townPopulation[i];
-			} else {
-				secondWord += townPopulation[i];
-			}
+	for (const line of input) {
+		args = line.split(' <-> ');
+		townName = args[0];
+		population = Number(args[1]);
+
+		if (towns[townName]) {
+			towns[townName] += population;
+		} else {
+			towns[townName] = population;
 		}
-		associativeArray[firstWord] = Number([secondWord]);
-		firstWord = '';
-		secondWord = '';
-		isDone = true;
 	}
 
-	console.log(associativeArray);
+	for (const key in towns) {
+		console.log(`${key} : ${towns[key]}`);
+	}
 }
 
-solve(['Sofia <-> 1200000',
-'Montana <-> 20000',
-'New York <-> 10000000',
-'Washington <-> 2345000',
-'Las Vegas <-> 1000000']
+solve(['Istanbul <-> 100000',
+'Hong Kong <-> 2100004',
+'Jerusalem <-> 2352344',
+'Mexico City <-> 23401925',
+'Istanbul <-> 1000']
 );
+
+// Istanbul : 101000
+// Hong Kong : 2100004
+// Jerusalem : 2352344
+// Mexico City : 23401925
