@@ -1,0 +1,13 @@
+{
+    "model": "BMW",
+    "year": 2012,
+    "facelift": true,
+    "owner": {
+        "name": "Pesho",
+        "age": 30
+    },
+    "extras": [
+        {"name": "climatronic", "price": 1500},
+        {"name": "seat heater", "price": 2000}
+    ]
+}
