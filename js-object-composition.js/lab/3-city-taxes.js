@@ -1,21 +1,20 @@
 function solve(name, population, treasury) {
-	// First way
-	// const city = {
-	// 	name: name,
-	// 	population: population,
-	// 	treasury: treasury,
-	// }
-	
-	// Second way
-	// let record = {};
-	// record.name = name;
-	// record.population = population;
-
-	// Third way - shorthand syntax
 	let record = {
 		name,
 		population,
-		treasury
+		treasury,
+		taxRate: 10,
+		collectTaxes() {
+			this.treasury += this.population * this.taxRate;
+		},
+		applyGrowth(percentage) {
+			percentage /= 100;
+			this.population *= percentage + 1;
+		},
+		applyRecession(percentage) {
+			percentage /= 100;
+			this.treasury *= 1 - percentage
+		}
 	}
 
 	return record
