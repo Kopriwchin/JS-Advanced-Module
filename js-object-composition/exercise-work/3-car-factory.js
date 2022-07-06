@@ -41,7 +41,7 @@ function solve(obj) {
 
     resultCar['wheels'] = wheels;
 
-    console.log(resultCar);
+    return resultCar;
 }
 
 solve({
