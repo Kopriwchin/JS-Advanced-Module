@@ -32,5 +32,4 @@ function objDemo(params) {
 
 	console.log(car.fullName());
 }
-
 objDemo();
