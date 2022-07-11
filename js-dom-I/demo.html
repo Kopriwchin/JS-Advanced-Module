@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width= , initial-scale=1.0">
 	<title>DOM Part I</title>
 </head>
+
 <body>
-	<h1>Hello DOM!</h1>
+	<h1 id="heading">Hello DOM!</h1>
 
 	<ul>
 		<li>BMW</li>
 		<li>Mercedes</li>
-		<li>Audi</li>
+		<li id="audiCar">Audi</li>
 	</ul>
+
+	<button onclick="changeTitle()">Title</button>
+	<button onclick="onSecondButtonClick()">SecondSend</button>
+	<button onclick="changeCar()">Car</button>
+
+	<script>
+		function changeTitle() {
+			let headingElement = document.getElementById('heading');
+			headingElement.innerHTML = 'Hello from <em>JS</em>!';
+		}
+
+		function changeCar(params) {
+			let carElement = document.getElementById('audiCar');
+			carElement.textContent = 'Audi Quattro';
+		}
+	</script>
+
+	<script src="demo.js"></script>
 </body>
+
 </html>
