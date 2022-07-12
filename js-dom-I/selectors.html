@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>DOM Selectors</title>
 </head>
-<body>
-	<h1>DOM Selectors</h1>
 
-	<p class="fancy-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, dolore.</p>
+<body>
+	<h1 id="heading">DOM Selectors</h1>
+
+	<p class="fancy-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+		Suscipit, dolore.</p>
 
 	<ul>
 		<li class="fancy-text">Some phrase here</li>
 		<li>Second phrase</li>
 	</ul>
 
+	<ol>
+		<li>Other list item in the ol</li>
+	</ol>
 	<script>
-		let textElements = document.getElementsByClassName('fanct-text'); 
+		// GET by id
+		let headingElement = document.getElementById('heading');
+		console.log(headingElement.textContent);
+
+		// GET by class name
+		let textElements = document.getElementsByClassName('fancy-text');
+		console.log(textElements);
+
+		// GET by tag name
+		let liElements = document.getElementsByTagName('li');
+		console.log(liElements);
+
+		// Get one by css selector
+		let fancyParagraph = document.querySelector('p.fancy-text');
+		console.log(fancyParagraph);
+
+		// Get many by css selector
+		let unOrderedLiElements = document.querySelectorAll('ul li');
+		console.log(unOrderedLiElements);
 	</script>
 </body>
+
 </html>
