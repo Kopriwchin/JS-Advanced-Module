@@ -4,13 +4,11 @@ function solve() {
 	function onClick() {
 		let searchElement = document.querySelector('#searchField');
 		let searchInput = searchElement.value;
-		let table = document.querySelectorAll('.container tr');
+		let table = document.querySelectorAll('tbody tr');
 
-		// Clear everything from last search
-		table.forEach(x => x.classList.remove('select'));
-
-		// Skip description cells
-		for (let i = 2; i < table.length; i++) {
+		for (let i = 0; i < table.length; i++) {
+			// Clear everything from last search
+			table[i].classList.remove('select');
 			let tdElements = table[i].getElementsByTagName('td');
 			let tdElementsArray = Array.from(tdElements);
 			
