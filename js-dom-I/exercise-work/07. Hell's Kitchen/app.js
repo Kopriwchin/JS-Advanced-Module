@@ -29,11 +29,10 @@ function solve() {
             restaurantData[3].push(...employeeNames);
             restaurantData[4].push(...salaries);
             restaurantData[1] = calculateAverageSalary(restaurantData[4]);
+            restaurantData[2] = calculateBestSalary(restaurantData[4]);
          } else {
-            let averageSalary = calculateAverageSalary(salaries);
-            console.log(averageSalary);
-            console.log(restaurantData);
-            if (restaurantData[1] < averageSalary) {
+            let currentAaverageSalary = calculateAverageSalary(salaries);
+            if (restaurantData[1] < currentAaverageSalary) {
                restaurantData[0] = restaurantName;
                restaurantData[1] = calculateAverageSalary(salaries);
                restaurantData[2] = calculateBestSalary(salaries);
@@ -42,7 +41,7 @@ function solve() {
             }
          }
       }
-
+      
       bestRestaurantOutput.textContent = `Name: ${restaurantData[0]} Average Salary: ${restaurantData[1].toFixed(2)} Best Salary: ${restaurantData[2].toFixed(2)}`;
 
       bestWorkersOutput.textContent = '';
