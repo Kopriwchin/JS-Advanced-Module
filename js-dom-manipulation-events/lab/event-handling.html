@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM Events | Movie List</h1>
+
+    <ul id="movie-list">
+        <li>The Matrix</li>
+        <li>The Lord of the Rings</li>
+        <li>Man of Steel</li>
+        <li>Braveheart</li>
+    </ul>
+
+    <input type="text" name="title" />
+    <button onclick="onAddClick(event)">Add</button>
+
+    <script>
+        let movieElements = document.querySelectorAll('#movie-list li');
+
+        movieElements.forEach(x => {
+            x.onclick = () => {
+                
+            }
+        });
+    </script>
+</body>
+
+</html>
