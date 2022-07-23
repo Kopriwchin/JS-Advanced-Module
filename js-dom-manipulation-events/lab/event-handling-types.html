@@ -25,23 +25,22 @@
         let incrementButtonElement = document.getElementById('increment');
         let decrementButtonElement = document.getElementById('decrement');
 
-        // Attach eventhandler by attribute
+        // 1. Attach eventhandler by attribute
         function clearCounter() {
             numberElement.textContent = 0;
-        }
+        };
 
-        // Attach eventhandler by event property
+        // 2. Attach eventhandler by event property
         incrementButtonElement.onclick = () => {
             let currentNumber = Number(numberElement.textContent);
             numberElement.textContent = currentNumber + 1;
-        }
+        };
 
-        // Attach eventlistener/eventhandler by method - preferred
+        // 3. Attach eventlistener/eventhandler by method - preferred
         decrementButtonElement.addEventListener('click', function() {
             let currentNumber = Number(numberElement.textContent);
             numberElement.textContent = currentNumber - 1;
-        })
-
+        });
     </script>
 </body>
 
