@@ -72,7 +72,7 @@ function solve() {
                 x.addEventListener('click', finishTask);
             });
 
-        e.currentTarget.parentNode.parentNode.remove();
+            currentArticle.remove();
     }
 
     function finishTask(e) {
@@ -92,7 +92,7 @@ function solve() {
             </article>
         `
 
-        e.currentTarget.parentNode.parentNode.remove();
+        currentArticle.remove();
     }
 
     function removeTask(e) {

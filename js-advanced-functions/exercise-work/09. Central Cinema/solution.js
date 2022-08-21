@@ -15,7 +15,7 @@ function solve() {
 
         if (nameInputElement.value.trim() &&
             hallInputElement.value.trim() &&
-            (!isNaN(ticketPriceInputElement.value.trim()) && ticketPriceInputElement.value.trim() != '')) {
+            (!isNaN(ticketPriceInputElement.value.trim()) && ticketPriceInputElement.value.trim() != '' && ticketPriceInputElement.value.trim() >= 0)) {
             moviesUlElement.innerHTML +=
                 `<li>
                     <span>${nameInputElement.value}</span>
@@ -43,7 +43,7 @@ function solve() {
         let ticketsSoldValue = e.currentTarget.parentNode.querySelector('input').value.trim();
         let overallPrice = Number(ticketsSoldValue) * Number(liElement.querySelector('div > strong').textContent);
 
-        if (!isNaN(ticketsSoldValue) && ticketsSoldValue != '') {
+        if (!isNaN(ticketsSoldValue) && ticketsSoldValue != '' && Number(ticketsSoldValue) >= 0) {
             archieveUlElement.innerHTML +=
                 `<li>
                 <span>${liElement.querySelector('span').textContent}</span>
