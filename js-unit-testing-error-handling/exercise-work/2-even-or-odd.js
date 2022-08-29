@@ -8,3 +8,7 @@ function isOddOrEven(string) {
 
     return "odd";
 }
+
+//console.log(isOddOrEven('556', '15'));
+
+module.exports = isOddOrEven;

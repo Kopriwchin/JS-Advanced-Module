@@ -14,6 +14,10 @@ describe('Even or odd function tester', () => {
         assert.isUndefined(isOddOrEven(5));
         assert.isUndefined(isOddOrEven());
         assert.isUndefined(isOddOrEven(['even']));
-        assert.isUndefined(isOddOrEven({string: even}));
-    })
-})
+        assert.isUndefined(isOddOrEven({string: 'even'}));
+    });
+    it('Should work correctly even when multiple strings are given as parameters', () => {
+        assert.equal(isOddOrEven('a', 'a'), 'even');
+        assert.equal(isOddOrEven('a', 'a', 'a'), 'odd');
+    });
+});
