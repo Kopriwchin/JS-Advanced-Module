@@ -8,6 +8,10 @@ describe('Function that have 3 methods - addFive(), subtractTen(), sum(number1, 
             assert.equal(mathEnforcer.addFive(0), 5);
             assert.equal(mathEnforcer.addFive(-5), 0);
             assert.equal(mathEnforcer.addFive(-10), -5);
+            assert.equal(mathEnforcer.addFive(0.01), 0.01 + 5);
+            assert.equal(mathEnforcer.addFive(-2.2), -2.2 + 5);
+            assert.equal(mathEnforcer.addFive(-5.5), -5.5 + 5);
+            
         });
         it('Should return undefined if parameter is not a number', () => {
             assert.isUndefined(mathEnforcer.addFive('a'));
@@ -23,6 +27,9 @@ describe('Function that have 3 methods - addFive(), subtractTen(), sum(number1, 
             assert.equal(mathEnforcer.subtractTen(5), -5);
             assert.equal(mathEnforcer.subtractTen(-10), -20);
             assert.equal(mathEnforcer.subtractTen(0), -10);
+            assert.equal(mathEnforcer.subtractTen(10.001), 10.001 - 10);
+            assert.equal(mathEnforcer.subtractTen(-0.1), -0.1 - 10);
+            assert.equal(mathEnforcer.subtractTen(5.5), 5.5 - 10);
 
         });
         it('Should return undefined if parameter is not a number', () => {
@@ -41,6 +48,9 @@ describe('Function that have 3 methods - addFive(), subtractTen(), sum(number1, 
             assert.equal(mathEnforcer.sum(0, 0), 0);
             assert.equal(mathEnforcer.sum(0, -5), -5);
             assert.equal(mathEnforcer.sum(-1, -1), -2);
+            assert.closeTo(mathEnforcer.sum(0.1, 0.1), 0.2, 0.1);
+            assert.closeTo(mathEnforcer.sum(-0.2, -0.3), -0.5, 0.1);
+            assert.closeTo(mathEnforcer.sum(-0.3, 0.5), 0.2, 0.1);
         });
         it('Should return undefined if parameter is not a number', () => {
             assert.isUndefined(mathEnforcer.sum(1, 'a'));
