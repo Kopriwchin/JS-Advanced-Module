@@ -15,41 +15,53 @@ function requestValidator(input) {
         throw new Error("Invalid request header: Invalid Version");
     }
 
-    if (uri.length > 0) {
+    if (uri) {
         let pattern = /\.*[a-z0-9]+\.*[a-z0-9]*\.*[a-z0-9]*/gim;
         let matchedUri = uri.match(pattern)[0];
         if (matchedUri.length !== uri.length) {
             throw new Error("Invalid request header: Invalid URI");
         }
+    } else {
+        throw new Error("Invalid request header: Invalid URI");
     }
 
     let specialChars = /[\<\>\\\&\'\"]/g;
-    if (message.match(specialChars)) {
+
+    if (typeof(message) === 'undefined' || message.match(specialChars)) {
         throw new Error("Invalid request header: Invalid Message");
     }
 
-    console.log('y');
     return input;
 }
 
-module.exports = requestValidator;
+// console.log(requestValidator({
+//     method: 'POST',
+//     uri: 'home.bash',
+//     version: 'HTTP/2.0'
+// })); // Invalid request header: Invalid Message
 
-// requestValidator({
+// console.log(requestValidator({
+//     method: 'POST',
+//     version: 'HTTP/2.0',
+//     message: 'rm -rf /*'
+// })); // Invalid request header: Invalid URI
+
+// console.log(requestValidator({
 //     method: 'GET',
 //     uri: 'svn.public.catalog',
 //     version: 'HTTP/1.1',
 //     message: ''
-// });
+// })); // correct
 
-// requestValidator({
+// console.log(requestValidator({
 //     method: 'OPTIONS',
 //     uri: 'git.master',
 //     version: 'HTTP/1.1',
 //     message: '-recursive'
-// });
+// })); // Invalid request header: Invalid Method
 
-// requestValidator({
+// console.log(requestValidator({
 //     method: 'POST',
 //     uri: 'home.bash',
 //     message: 'rm -rf /*'
-// });
+// })); // Invalid request header: Invalid Version
