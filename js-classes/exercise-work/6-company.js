@@ -13,13 +13,11 @@ class Company {
             } else {
                 this.departments[department].push([name, salary, position]);
             }
-            
             return `New employee is hired. Name: ${name}. Position: ${position}`
         }
     }
 
     bestDepartment() {
-        console.log(this.departments);
         let bestDepartmentArr = ['', Number.MIN_SAFE_INTEGER];
 
         for (const key in this.departments) {
@@ -32,20 +30,24 @@ class Company {
             if (avgSalary > bestDepartmentArr[1]) {
                 bestDepartmentArr = [key, avgSalary];
             }
-            console.log(avgSalary);
         }
         
         let bestDep = this.departments[bestDepartmentArr[0]];
-        console.log(`Best Department is: ${bestDepartmentArr[0]}`);
-        console.log(`Average salary: ${bestDepartmentArr[1].toFixed(2)}`);
-        bestDep.forEach(x => {
-            console.log(`${x.name}`);
-            
+
+        let res = `Best Department is: ${bestDepartmentArr[0]}\nAverage salary: ${bestDepartmentArr[1].toFixed(2)}\n`;
+
+        bestDep.sort((a, b) => {
+            return a[0].localeCompare(b[0]);
+        }).sort((a, b) => {
+            return b[1] - a[1];
+        }).forEach(x => {
+            res += `${x[0]} ${x[1]} ${x[2]}\n`;
         });
+        return res.trim();
     }
 
     employeeValidation(name, salary, position, department) {
-        if ((!name.length) || (!salary) || (!position.length) || (!department.length)
+        if ((!name.length) || (!salary) || salary < 0 || (!position.length) || (!department.length)
         ) {
             throw new Error('Invalid input!');
         } else {
