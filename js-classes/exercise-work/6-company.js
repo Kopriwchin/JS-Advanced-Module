@@ -8,11 +8,9 @@ class Company {
 
         if (isValid) {
             if (!Object.keys(this.departments).includes(department)) {
-                this.departments[department] = [];
-                this.departments[department].push([name, salary, position]);
-            } else {
-                this.departments[department].push([name, salary, position]);
-            }
+                this.departments[department] = [];               
+            }  
+            this.departments[department].push([name, salary, position]);
             return `New employee is hired. Name: ${name}. Position: ${position}`
         }
     }
@@ -47,7 +45,7 @@ class Company {
     }
 
     employeeValidation(name, salary, position, department) {
-        if ((!name.length) || (!salary) || salary < 0 || (!position.length) || (!department.length)
+        if ((!name) || (!salary) || salary < 0 || (!position) || (!department)
         ) {
             throw new Error('Invalid input!');
         } else {
