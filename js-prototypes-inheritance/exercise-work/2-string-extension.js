@@ -38,11 +38,16 @@
                 }
                 return string;
             }
+            // string.truncate(4);
+            // hello my string
+            // h....
+            else if (n < splitString.indexOf(' ')) {
+                
+            }
             else {
                 for (let i = 0; i < indexes.length; i++) {
-                    console.log(indexes[i]);
                     let initString = this.slice(0, indexes[i]) + '...';
-                    if (initString.length < n) {
+                    if (initString.length <= n) {
                         return initString;
                     }
                 }
@@ -51,19 +56,26 @@
         }
     }
 
-    String.prototype.format = function (string, ...params) {
+    String.format = function (string, ...params) {
 
+        for (var i = 0; i < params.length; i++) {
+            string = string.replace(/\{\d\}/, params[i]);
+        }
+        return string;
     }
 })();
 
 let str = 'my string';
-str = str.ensureStart('my');
-str = str.ensureStart('hello ');
+// str = str.ensureStart('my');
+// str = str.ensureStart('hello ');
 // console.log(str.truncate(16));
 // console.log(str.truncate(14));
+// console.log(str.truncate(8));
+
 console.log(str.truncate(4));
 console.log(str.truncate(2));
-// str = String.format('The {0} {1} fox',
-//     'quick', 'brown');
-// str = String.format('jumps {0} {1}',
-//     'dog');
+str = String.format('The {0} {1} fox',
+    'quick', 'brown');
+str = String.format('jumps {0} {1}',
+    'dog');
+
