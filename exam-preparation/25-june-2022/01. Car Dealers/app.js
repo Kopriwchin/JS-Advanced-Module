@@ -10,14 +10,12 @@ function solve() {
   let originalCostInput = document.getElementById('original-cost');
   let sellingPriceInput = document.getElementById('selling-price');
 
-
-
   publishButton.addEventListener('click', function (e) {
     e.preventDefault();
 
     if (makeInputElement.value.length == 0 || modelInputElement.value.length == 0 ||
       yearInputElement.value.length == 0 || originalCostInput.value.length == 0 ||
-      sellingPriceInput.value.length == 0 || (Number(originalCostInput.value) > Number(sellingPriceInput.value))
+      sellingPriceInput.value.length == 0 || (Number(originalCostInput.value) >= Number(sellingPriceInput.value))
     ) {
       return;
     }
@@ -37,14 +35,21 @@ function solve() {
             <button class="action-btn sell">Sell</button>
           </td>
         </tr>`;
-
-        makeInputElement.value = '';
-        modelInputElement.value = '';
-        yearInputElement.value = '';
-        fuelElement.value = '';
-        originalCostInput.value = '';
-        sellingPriceInput.value = '';
-
+        console.log(document.querySelectorAll('#table-body > tr > td > button[class="action-btn edit"]'));
+        clearInputs()
     };
-  })
+  });
+
+  document.querySelectorAll('#table-body > tr > td > button[class="action-btn edit"]').forEach(x => x.addEventListener('click', function(e) {
+    console.log(555)
+  }));
+
+  function clearInputs() {
+    makeInputElement.value = '';
+    modelInputElement.value = '';
+    yearInputElement.value = '';
+    fuelElement.value = '';
+    originalCostInput.value = '';
+    sellingPriceInput.value = '';
+  }
 }
