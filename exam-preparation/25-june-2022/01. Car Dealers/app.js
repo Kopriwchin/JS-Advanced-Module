@@ -10,6 +10,7 @@ function solve() {
   let originalCostInput = document.getElementById('original-cost');
   let sellingPriceInput = document.getElementById('selling-price');
   let tableBody = document.getElementById('table-body');
+
   const soldCarsElement = document.getElementById("cars-list");
   const totalProfitElement = document.getElementById("profit");
   let profitMade = 0;
@@ -24,75 +25,118 @@ function solve() {
       return;
     }
     else {
-      const tr = elGenerator('tr');
-      tr.setAttribute('class', 'row');
-
-      elGenerator('td', `${makeInputElement.value}`, tr);
-      elGenerator('td', `${modelInputElement.value}`, tr);
-      elGenerator('td', `${yearInputElement.value}`, tr);
-      elGenerator('td', `${fuelElement.value}`, tr);
-      elGenerator('td', `${originalCostInput.value}`, tr);
-      elGenerator('td', `${sellingPriceInput.value}`, tr);
-      const actionCell = elGenerator('td');
-      tr.appendChild(actionCell);
-
-      const editBtn = elGenerator("button", "Edit");
-      editBtn.setAttribute("class", "action-btn");
-      editBtn.setAttribute("id", "edit");
-      actionCell.appendChild(editBtn);
-
-      const sellBtn = elGenerator("button", "Sell");
-      sellBtn.setAttribute("class", "action-btn");
-      sellBtn.setAttribute("id", "sell");
-      actionCell.appendChild(sellBtn);
-
-      tableBody.appendChild(tr);
-
-      console.log(makeInputElement.value);
-      editBtn.addEventListener("click", (ev) =>
-        editOffer(
-          ev,
-          makeInputElement.value,
-          modelInputElement.value,
-          yearInputElement.value,
-          fuelElement.value,
-          originalCostInput.value,
-          sellingPriceInput.value
-        )
-      );
-
-      sellBtn.addEventListener("click", (ev) =>
-        sellCar(
-          ev,
-          makeInputEl,
-          modelInputEl,
-          yearInputEl,
-          firstPriceInputEl,
-          sellingPriceInputEl
-        )
+      addOffer(
+        makeInputElement.value,
+        modelInputElement.value,
+        yearInputElement.value,
+        fuelElement.value,
+        originalCostInput.value,
+        sellingPriceInput.value
       );
 
       clearInputs();
     };
   });
 
+  function addOffer(
+    makeInputElement,
+    modelInputElement,
+    yearInputElement,
+    fuelElement,
+    originalCostInput,
+    sellingPriceInput
+  ) {
+
+    const tr = elGenerator('tr');
+    tr.setAttribute('class', 'row');
+
+    elGenerator('td', `${makeInputElement}`, tr);
+    elGenerator('td', `${modelInputElement}`, tr);
+    elGenerator('td', `${yearInputElement}`, tr);
+    elGenerator('td', `${fuelElement}`, tr);
+    elGenerator('td', `${originalCostInput}`, tr);
+    elGenerator('td', `${sellingPriceInput}`, tr);
+    const actionCell = elGenerator('td');
+    tr.appendChild(actionCell);
+
+    const editBtn = elGenerator("button", "Edit");
+    editBtn.setAttribute("class", "action-btn");
+    editBtn.setAttribute("id", "edit");
+    actionCell.appendChild(editBtn);
+
+    const sellBtn = elGenerator("button", "Sell");
+    sellBtn.setAttribute("class", "action-btn");
+    sellBtn.setAttribute("id", "sell");
+    actionCell.appendChild(sellBtn);
+
+    tableBody.appendChild(tr);
+
+    editBtn.addEventListener("click", (ev) =>
+      editOffer(
+        ev,
+        makeInputElement,
+        modelInputElement,
+        yearInputElement,
+        fuelElement,
+        originalCostInput,
+        sellingPriceInput
+      )
+    );
+
+    sellBtn.addEventListener("click", (ev) =>
+      sellCar(
+        ev,
+        makeInputElement,
+        modelInputElement,
+        yearInputElement,
+        fuelElement,
+        originalCostInput,
+        sellingPriceInput
+      )
+    );
+  }
+
   function editOffer(
     ev,
-    _makeInputEl,
-    _modelInputEl,
-    _yearInputEl,
-    _fuelInputEl,
-    _firstPriceInputEl,
-    _sellingPriceInputEl
+    _makeCar,
+    _modelCar,
+    _yearCar,
+    _fuelCar,
+    _firstPriceCar,
+    _sellingPriceCar
   ) {
     ev.target.parentNode.parentNode.remove();
 
-    makeInputElement.value = _makeInputEl;
-    modelInputElement.value = _modelInputEl;
-    yearInputElement.value = _yearInputEl;
-    fuelElement.value = _fuelInputEl;
-    originalCostInput.value = _firstPriceInputEl;
-    sellingPriceInput.value = _sellingPriceInputEl;
+    makeInputElement.value = _makeCar;
+    modelInputElement.value = _modelCar;
+    yearInputElement.value = _yearCar;
+    fuelElement.value = _fuelCar;
+    originalCostInput.value = _firstPriceCar;
+    sellingPriceInput.value = _sellingPriceCar;
+  };
+
+  function sellCar(
+    ev,
+    _makeCar,
+    _modelCar,
+    _yearCar,
+    _fuelCar,
+    _firstPriceCar,
+    _sellingPriceCar
+  ) {
+    ev.target.parentNode.parentNode.remove();
+
+    profitMade += _sellingPriceCar - _firstPriceCar;
+
+    let soldCar = elGenerator('li');
+    soldCar.className = 'each-list';
+
+    soldCar.appendChild(elGenerator('span', `${_makeCar} ${_modelCar}`));
+    soldCar.appendChild(elGenerator('span', `${_yearCar}`));
+    soldCar.appendChild(elGenerator('span', `${_sellingPriceCar - _firstPriceCar}`));
+
+    soldCarsElement.appendChild(soldCar);
+    totalProfitElement.textContent = profitMade.toFixed(2);
   }
 
   function clearInputs() {
